@@ -1,0 +1,95 @@
+ h1 {
+   font-size: 28px;
+   text-align: center;
+ }
+
+ form {
+   max-width: 600px;
+   box-sizing: border-box;
+   display: flex; 
+   flex-direction: column;
+   padding: 0 20px;
+   margin: 0 auto;
+   position: relative;
+   height: 60vh;
+ }
+
+ form input {
+   width: 100%;
+   border: 1px solid #c244d8;
+   outline: none;
+   height: 40px;
+   transition: box-shadow 0.2s;
+   margin-bottom: 20px;
+   border-radius: 5px;
+   font-size: 20px;
+ }
+
+ form input:focus {
+   box-shadow: 0 0 3px #c244d8;
+ }
+
+ form label {
+
+   display: block;
+ }
+
+ form .add {
+   color: #fff;
+   background-color: #c244d8;
+   font-size: 14px;
+   padding: 10px;
+   border-radius: 2px;
+   width: 100px;
+   display: block;
+   align-self: flex-end;
+   border: none;
+   border-bottom: 3px solid #673ab7;
+   transition: all 0.2s;
+ }
+
+ form .close {
+   position: absolute;
+   top: 2px;
+   right: 10px;
+ }
+
+
+ form button:focus {
+   outline: none;
+   box-shadow: 0 0 4px #673ab7;
+ }
+
+ form button:active {
+   border-bottom: none;
+   margin-top: 2px;
+   box-shadow: 0 2px 0 #673ab7 inset;
+ }
+
+ form button:disabled {
+   background-color: #dec5e2;
+   border-bottom: 2px solid #f0e9fd;
+ }
+
+ .flex-column {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+ }
+
+
+
+ .flex-center {
+   display: flex;
+   justify-content: center;
+   width: auto;
+   height: 100%;
+ }
+
+ .flex-center img {
+   width: 250px;
+   height: 250px;
+   object-fit: contain;
+ }
+
