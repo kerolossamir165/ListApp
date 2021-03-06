@@ -55,3 +55,17 @@ li button:hover {
    color: #fff;
 
 }
+
+
+.sort {
+
+   color: #fff;
+    background-color: #c244d8;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 2px;
+    width: 100px;
+    border: none;
+
+
+}

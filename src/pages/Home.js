@@ -6,7 +6,7 @@ import { openModal   } from '../actions'
 
 import './Home.css'
 
-function Home({openModal}) {
+function Home({openModal }) {
     return(
         <div className="container">
             <div className="flex-items">

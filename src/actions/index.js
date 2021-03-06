@@ -1,42 +1,65 @@
-import {ADD_ITEM , DELETE_ITEM , CLOSE_MODAL , OPEN_MODAL} from './constant'
+import {ADD_ITEM , DELETE_ITEM , CLOSE_MODAL ,START_EDITE  , EDITE_ITEM , OPEN_MODAL , SORT_ITEM} from './constant'
 import uuid from 'react-uuid'
 
-
-export function addItem(itemName , itemPhoto) {
+//* Add item Action Creator 
+export function addItem({name , image}) {
     return {
         type: ADD_ITEM,
         payload: {
-            name: itemName,
-            photo: itemPhoto,
+            name,
+            photo: image,
             id: uuid()
         }
     }
 }
 
-export function deleteItem(item) {
+//* Delete item Action Creator 
+
+export function deleteItem({name , image}) {
     return {
         type: DELETE_ITEM,
+        payload: {name , photo: image}
+    }
+}
+
+//* Update item Action Creator 
+
+export function updateItem(item) {
+    return {
+        type: EDITE_ITEM,
+        payload:{
+            name: item.name ,
+            photo: item.image
+        }
+    }
+}
+
+
+export const startEdite = (item) => {
+    return {
+        type: START_EDITE,
         payload: item
     }
 }
 
-// export function updateITem(itemName , itemPhoto) {
-//     return {
-//         type:UPDATE,
-//         payload:{
-//             name: itemName,
-//             photo: itemPhoto
-//         }
-//     }
-// }
 
-
+//* open modal  
 export const openModal = () => {
     return {
         type: OPEN_MODAL
     }
 };
   
+//* close modal  
+
 export const closeModal = () => ({
     type: CLOSE_MODAL
 });
+
+// * sort Items 
+
+export const sortItem = ()=> {
+    return {
+        type:  SORT_ITEM
+    }
+}
