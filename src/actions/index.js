@@ -15,10 +15,10 @@ export function addItem({name , image}) {
 
 //* Delete item Action Creator 
 
-export function deleteItem({name , image}) {
+export function deleteItem(item) {
     return {
         type: DELETE_ITEM,
-        payload: {name , photo: image}
+        payload: item
     }
 }
 
