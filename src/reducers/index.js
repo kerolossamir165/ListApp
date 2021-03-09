@@ -26,6 +26,7 @@ let reducer = produce((draft, action) => {
             break
         case DELETE_ITEM:
             let pos = draft.list.findIndex(ele => ele.id === action.payload.id)
+            
             draft.list.splice(pos, 1)
             break
         case OPEN_MODAL:

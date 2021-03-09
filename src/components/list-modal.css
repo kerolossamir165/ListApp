@@ -1,0 +1,23 @@
+.react-modal {
+    padding: 23px;
+    width: 476px;
+    box-shadow: 0px 0px 9px 0px #bfbfbf;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: monospace;
+
+}
+.react-modal p {
+    font-size: 23px;
+}
+.react-modal button {
+    color: #fff ;
+    background-color: #c244d8;
+   font-size: 14px;
+   padding: 10px;
+   border-radius: 2px;
+    margin: 5px;
+   border: none;
+   transition: all 0.2s;
+}
+

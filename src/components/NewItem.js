@@ -1,11 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { connect } from 'react-redux';
-
 import FileInput from './FileUplaod'
 import {addItem , updateItem } from '../actions'
 import {EDITE_DONE} from '../actions/constant'
+import {validate} from '../helper/validate'
 import defaultIamge from '../Images/765-default-avatar.png'
 import './NewItem.css'; 
+
 
 
 const NewItem = ({dispatch  , edite , selected}) => {
@@ -13,29 +14,43 @@ const NewItem = ({dispatch  , edite , selected}) => {
   let avatar = selected ? selected.photo : null
   const [name, setName] = useState(title);
   const [photo, setPhoto] = useState( avatar );
+  let [errorName , setErrorName] = useState('')
   const inputRef = useRef();
-
+  
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
   function handelSelectedPhoto(image) {
       setPhoto(image)
   }
-  useEffect(() => {
-    inputRef.current.focus();
-  }, [  ]);
+
   
   const handleSubmit = e => {
     e.preventDefault();
     let image = photo ? photo : defaultIamge 
 
     if(!edite) {
+  
       dispatch(addItem({ name , image}));
     } else {
-      
+    
       dispatch(updateItem({name , image}))
-     
       dispatch({type:EDITE_DONE})
+
     }
   };
+
+
+  let handelChange = (e) => {
+    let {value } = e.target 
+    if(validate(value , setName , setErrorName)) {
+      setName(value)
+      setErrorName('')
+    }  
+  }
+
+ 
 
   return (
     <div className="container">
@@ -47,8 +62,9 @@ const NewItem = ({dispatch  , edite , selected}) => {
             ref={inputRef}
             value={name}
             required
-            onChange={e =>  setName(e.target.value)}
+            onChange={handelChange}
           />
+          {errorName ? <div style={{color:'red', padding:'5px', border:'1px solid red'}}>{errorName}</div> : null}
         </label>
         <div className='flex-column '>
             {photo  && <div className='flex-center'>
@@ -61,7 +77,7 @@ const NewItem = ({dispatch  , edite , selected}) => {
         </button>
       </form>
     </div>
-  );
+  )
 };
 
 

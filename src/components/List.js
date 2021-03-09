@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import ListItem from './ListITem'
-import {deleteItem   , updateItem , startEdite , sortItem} from '../actions'
+import {deleteItem   , updateItem , startEdite , sortItem , closeModal} from '../actions'
 import './List.css'
 
-function List({items  , deleteItem , startEdite ,sortItem }) {
+function List({items  , deleteItem , startEdite ,sortItem ,closeModal }) {
     return (
         <ul className=''>
                                 { items.length === 0 ? 
@@ -15,7 +15,7 @@ function List({items  , deleteItem , startEdite ,sortItem }) {
                     <div>   
                         <button onClick={sortItem} className='sort'>sort</button>
                         {items.map(item=> ( <ListItem key={item.id}   item={item}  deleteItem={deleteItem}
-                            startEdite={startEdite}/>))}
+                             close={closeModal}    startEdite={startEdite}/>))}
                     </div>
                   }
                 
@@ -32,4 +32,4 @@ function mapStateToProps(state) {
  }
 
 
-export default connect(mapStateToProps , {deleteItem   , updateItem , startEdite  ,sortItem})(List)
+export default connect(mapStateToProps , {deleteItem   , updateItem , startEdite ,closeModal ,sortItem})(List)

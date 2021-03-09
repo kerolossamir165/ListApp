@@ -24,6 +24,7 @@ function FileIput({handelSelectedPhoto , text }) {
                 type="file"
                 id="photo"
                 className='file-input__input'
+                multiple accept=".jpg, .png"
                 ref={photoInput}
                 onChange={() => updatePhoto(handelSelectedPhoto , photoInput)}
                 />
